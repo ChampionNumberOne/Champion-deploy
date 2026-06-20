@@ -317,3 +317,29 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .db-text{font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
 .db-text b{color:var(--ink)}
 .db-timing{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-faint)}
+/* ===== Круг виса v2: подготовка, поправка, степперы, подсказки ===== */
+/* строка-настройка со степпером */
+.hstep{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.hstep:last-child{border-bottom:none}
+.stepmini{display:flex;align-items:center;gap:10px;flex:none}
+.stepmini .mini{width:34px;height:34px;border-radius:10px}
+.stepmini span{min-width:46px;text-align:center;font-family:var(--serif);font-size:16px;font-weight:600;color:var(--amber)}
+.hold-tip{margin-top:12px;font-size:12.5px;line-height:1.5;color:var(--ink-faint);
+  background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+
+/* кнопки в круге: две в ряд */
+.hold-ctrls.two{display:flex;gap:10px}
+.hold-ctrls.two .btn{flex:1;margin:0}
+
+/* кольцо подготовки — спокойный синий */
+.hold-ring .hr-fg.prep{stroke:var(--blue);transition:none}
+
+/* фаза поправки на спрыгивание */
+.adj-big{margin:6px 0 12px;display:flex;flex-direction:column;align-items:center}
+.adj-big span{font-family:var(--serif);font-size:54px;font-weight:600;line-height:1;color:var(--amber)}
+.adj-big small{font-size:12px;color:var(--ink-faint);margin-top:6px}
+.adj-row{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:12px 0 10px}
+.adj-label{font-size:13.5px;color:var(--ink-soft)}
+.adj-calc{font-size:13px;color:var(--ink-faint);text-align:center;margin-bottom:14px}
+.adj-calc b{color:var(--ink)}
