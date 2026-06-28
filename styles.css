@@ -343,3 +343,53 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .adj-label{font-size:13.5px;color:var(--ink-soft)}
 .adj-calc{font-size:13px;color:var(--ink-faint);text-align:center;margin-bottom:14px}
 .adj-calc b{color:var(--ink)}
+/* ===== Переключатель дисциплин + экран «Свободная тренировка» ===== */
+:root{ --violet:#8b7cf6; --blue:#5b9bd5; }
+
+/* лента дисциплин */
+.dstrip{display:flex;gap:8px;overflow-x:auto;padding:10px 16px 4px;scrollbar-width:none}
+.dstrip::-webkit-scrollbar{display:none}
+.dchip{flex:none;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;
+  background:var(--card);border:1px solid var(--line);color:var(--ink-soft);font-size:13px;font-weight:600;white-space:nowrap;transition:.2s}
+.dchip.on{background:var(--card2);color:var(--ink)}
+.dchip.soon{opacity:.6}
+.dchip-ico{font-size:15px}
+.dchip-soon{font-size:10px;color:var(--ink-faint);font-weight:500;margin-left:2px}
+
+/* форма ввода параметров */
+.fgroup{padding:12px 0;border-bottom:1px solid var(--line)}
+.fgroup:last-child{border-bottom:none}
+.flabel{font-size:13px;color:var(--ink-faint);margin-bottom:8px;font-weight:600}
+.frow{display:flex;flex-wrap:wrap;gap:8px}
+.frow.hidden,.hidden{display:none}
+.fhint{font-size:12px;color:var(--ink-faint);margin-top:8px;line-height:1.5}
+.fchip{padding:8px 14px;border-radius:10px;background:var(--bg2);border:1px solid var(--line);
+  color:var(--ink-soft);font-size:13px;font-weight:600;transition:.15s}
+.fchip.on{background:var(--amber);border-color:var(--amber);color:#1a1207}
+
+/* карточка упражнения в плане */
+.fitem{padding:14px 16px}
+.fi-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.fi-name{font-weight:600;font-size:15px}
+.fi-sets{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--amber);white-space:nowrap}
+.fi-mus{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}
+.mchip{font-size:11px;padding:3px 8px;border-radius:6px;background:var(--bg2);color:var(--ink-faint)}
+.fi-note{font-size:13px;color:var(--ink-soft);line-height:1.5}
+.fwarn{margin-top:10px;font-size:12.5px;line-height:1.5;color:#e0a05f;
+  background:rgba(224,160,95,.1);border:1px solid rgba(224,160,95,.3);border-radius:10px;padding:8px 10px}
+.fwarn.soft{color:var(--ink-soft);background:var(--bg2);border-color:var(--line)}
+.swapbtn{margin-top:10px}
+
+/* офисный режим */
+.orow{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.orow:last-child{border-bottom:none}
+.oslot{font-family:var(--serif);font-size:14px;color:var(--amber);min-width:64px}
+.oname{flex:1;font-size:14px}
+.oreps{font-size:13px;color:var(--ink-faint)}
+
+/* запись: чисто/грязно */
+.logrow{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:10px}
+.lglab{font-size:13.5px;color:var(--ink-soft)}
+.lgval{min-width:40px;text-align:center;font-family:var(--serif);font-size:18px;font-weight:600;color:var(--amber)}
+.stepmini{display:flex;align-items:center;gap:10px}
+.stepmini .mini{width:34px;height:34px;border-radius:10px}
