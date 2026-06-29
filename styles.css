@@ -398,3 +398,11 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .dstrip{cursor:grab;scroll-behavior:smooth}
 .dstrip.dragging{cursor:grabbing;scroll-behavior:auto}
 .dstrip.dragging .dchip{pointer-events:none}
+/* ===== Кросс-предупреждение восстановления (на экране подтягиваний) ===== */
+.card.crosswarn{background:rgba(224,160,95,.08);border-color:rgba(224,160,95,.4)}
+.cw-head{font-weight:700;font-size:15px;color:#e0a05f;margin-bottom:8px}
+.cw-msg{font-size:14px;line-height:1.55;color:var(--ink-soft);margin-bottom:8px}
+.cw-sci{font-size:12.5px;line-height:1.5;color:var(--ink-faint);
+  background:var(--bg2);border-radius:10px;padding:9px 11px;margin-bottom:12px}
+.cw-actions{display:flex;gap:10px}
+.cw-actions .btn{flex:1}
