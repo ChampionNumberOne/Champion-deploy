@@ -347,8 +347,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 :root{ --violet:#8b7cf6; --blue:#5b9bd5; }
 
 /* лента дисциплин */
-.dstrip{display:flex;gap:8px;overflow-x:auto;padding:10px 16px 4px;scrollbar-width:none}
-.dstrip::-webkit-scrollbar{display:none}
+.dstrip{display:flex;flex-wrap:wrap;gap:8px;padding:10px 16px 4px}
 .dchip{flex:none;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;
   background:var(--card);border:1px solid var(--line);color:var(--ink-soft);font-size:13px;font-weight:600;white-space:nowrap;transition:.2s}
 .dchip.on{background:var(--card2);color:var(--ink)}
@@ -394,15 +393,16 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .stepmini{display:flex;align-items:center;gap:10px}
 .stepmini .mini{width:34px;height:34px;border-radius:10px}
 
-/* десктоп: видно, что ленту можно тянуть */
-.dstrip{cursor:grab;scroll-behavior:smooth}
-.dstrip.dragging{cursor:grabbing;scroll-behavior:auto}
-.dstrip.dragging .dchip{pointer-events:none}
-/* ===== Кросс-предупреждение восстановления (на экране подтягиваний) ===== */
-.card.crosswarn{background:rgba(224,160,95,.08);border-color:rgba(224,160,95,.4)}
-.cw-head{font-weight:700;font-size:15px;color:#e0a05f;margin-bottom:8px}
-.cw-msg{font-size:14px;line-height:1.55;color:var(--ink-soft);margin-bottom:8px}
-.cw-sci{font-size:12.5px;line-height:1.5;color:var(--ink-faint);
-  background:var(--bg2);border-radius:10px;padding:9px 11px;margin-bottom:12px}
-.cw-actions{display:flex;gap:10px}
-.cw-actions .btn{flex:1}
+/* выбор упражнений вручную («Выберу сам») */
+.pickgroup{margin-bottom:14px}
+.pickgroup:last-child{margin-bottom:0}
+.pickrow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-top:8px;transition:.15s}
+.pickrow.on{border-color:var(--amber);background:rgba(232,162,74,.08)}
+.pk-check{width:26px;height:26px;flex:none;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  background:var(--card);border:1px solid var(--line);color:var(--ink-faint);font-weight:700}
+.pickrow.on .pk-check{background:var(--amber);border-color:var(--amber);color:#1a1207}
+.pk-body{display:flex;flex-direction:column;gap:2px}
+.pk-name{font-weight:600;font-size:14px;color:var(--ink)}
+.pk-mus{font-size:12px;color:var(--ink-faint)}
+.btn.disabled{opacity:.5;pointer-events:none}
