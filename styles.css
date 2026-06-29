@@ -393,3 +393,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .lgval{min-width:40px;text-align:center;font-family:var(--serif);font-size:18px;font-weight:600;color:var(--amber)}
 .stepmini{display:flex;align-items:center;gap:10px}
 .stepmini .mini{width:34px;height:34px;border-radius:10px}
+
+/* десктоп: видно, что ленту можно тянуть */
+.dstrip{cursor:grab;scroll-behavior:smooth}
+.dstrip.dragging{cursor:grabbing;scroll-behavior:auto}
+.dstrip.dragging .dchip{pointer-events:none}
