@@ -241,7 +241,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .lb-val{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--amber)}
 .lb-val small{font-size:10px;color:var(--ink-faint);font-family:var(--sans)}
 .rate-me{font-size:12.5px;color:var(--ink-soft);margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
-.seasons{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}
 .season{flex:none;width:150px;background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:13px}
 .se-n{font-family:var(--serif);font-size:17px;font-weight:600}
 .se-s{font-size:11.5px;color:var(--ink-faint);margin:4px 0 8px;line-height:1.4}
@@ -424,3 +423,36 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .bm-bars i{height:5px;border-radius:3px;display:block;min-width:2px}
 .bm-bars .bm-dyn{background:var(--amber)}
 .bm-bars .bm-stat{background:var(--blue)}
+/* ===== CSS для новых фич (дописать в конец styles.css) ===== */
+
+/* Кросс-предупреждение восстановления */
+.card.crosswarn{background:rgba(224,160,95,.08);border-color:rgba(224,160,95,.4)}
+.cw-head{font-weight:700;font-size:15px;color:#e0a05f;margin-bottom:8px}
+.cw-msg{font-size:14px;line-height:1.55;color:var(--ink-soft);margin-bottom:8px}
+.cw-sci{font-size:12.5px;line-height:1.5;color:var(--ink-faint);
+  background:var(--bg2);border-radius:10px;padding:9px 11px;margin-bottom:12px}
+.cw-actions{display:flex;gap:10px}
+.cw-actions .btn{flex:1}
+
+/* GTG — Отжимания */
+.gtg-maxset{display:flex;align-items:center;justify-content:center;gap:18px;margin:6px 0}
+.gtg-maxval{font-family:var(--serif);font-size:46px;font-weight:600;color:var(--teal);min-width:70px;text-align:center}
+.gtg-dots{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.gd{width:22px;height:22px;border-radius:7px;background:var(--bg2);border:1px solid var(--line);transition:.2s}
+.gd.on{background:var(--teal);border-color:var(--teal)}
+.gtg-proj{display:flex;gap:8px;margin-top:6px}
+.gtg-proj>div{flex:1;text-align:center;background:var(--bg2);border-radius:10px;padding:10px 4px}
+.gtg-proj span{display:block;font-size:11px;color:var(--ink-faint);margin-bottom:4px}
+.gtg-proj b{font-family:var(--serif);font-size:20px;color:var(--ink)}
+
+/* Гора восхождения */
+.mountain-wrap{margin:4px 0 10px}
+.mt-pct{font-size:12px;color:var(--ink-faint);text-align:center;margin-bottom:6px;letter-spacing:.3px}
+.mt-svg{width:100%;max-width:340px;display:block;margin:0 auto}
+.mt-outline{fill:var(--card2);stroke:var(--line2);stroke-width:1.5}
+.mt-fill{fill:rgba(232,162,74,.22);stroke:none}
+.mt-flag-pole{stroke:var(--amber);stroke-width:1.5}
+.mt-flag{fill:var(--amber)}
+.mt-cur{fill:var(--ink);font-size:9px;font-family:var(--sans);font-weight:700}
+.mt-goal{fill:var(--amber);font-size:9px;font-family:var(--sans);font-weight:700}
+.mt-lab{fill:var(--ink-faint);font-size:9px;font-family:var(--sans)}
