@@ -463,3 +463,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .laychip.dyn.on{border-bottom-color:var(--amber);color:var(--amber)}
 .laychip.stat.on{border-bottom-color:var(--blue);color:var(--blue)}
 .laychip.all.on{border-bottom-color:var(--ink-soft)}
+/* серии (силовой режим Кожуркина) */
+.series-head{font-size:12px;font-weight:700;color:var(--amber);margin:12px 0 6px;letter-spacing:.3px}
+.series-head:first-child{margin-top:0}
+.series-sub{font-weight:500;color:var(--ink-faint);font-size:11px;margin-left:4px}
+.series-gap{text-align:center;font-size:12px;color:var(--ink-faint);padding:8px;margin:6px 0;
+  background:var(--bg2);border-radius:10px;border:1px dashed var(--line)}
