@@ -469,3 +469,14 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .series-sub{font-weight:500;color:var(--ink-faint);font-size:11px;margin-left:4px}
 .series-gap{text-align:center;font-size:12px;color:var(--ink-faint);padding:8px;margin:6px 0;
   background:var(--bg2);border-radius:10px;border:1px dashed var(--line)}
+/* пошаговая запись подходов */
+.setlog{font-size:12.5px;color:var(--ink-faint);margin:8px 0 4px}
+.setlog b{color:var(--amber)}
+.setchip{display:inline-flex;align-items:center;gap:3px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:8px;padding:2px 4px 2px 8px;font-size:12px;color:var(--ink-soft);margin:2px 2px 0 0}
+.setx{background:none;border:none;color:var(--ink-faint);font-size:14px;line-height:1;padding:0 2px;cursor:pointer}
+.setx:hover{color:var(--red,#e0736b)}
+.commitbtn{width:100%;margin-top:12px;background:var(--card2);border:1px solid var(--teal);color:var(--teal);font-weight:600}
+.commitbtn:active{background:var(--teal);color:#0d1a18}
+.fitem.done{border-color:rgba(95,208,196,.4)}
+.fitem.done .fi-name{color:var(--teal)}
