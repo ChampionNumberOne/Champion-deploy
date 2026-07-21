@@ -480,3 +480,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .commitbtn:active{background:var(--teal);color:#0d1a18}
 .fitem.done{border-color:rgba(95,208,196,.4)}
 .fitem.done .fi-name{color:var(--teal)}
+/* офисный режим — фиксация подходов */
+.orow{align-items:flex-start;flex-wrap:wrap}
+.orow.next{background:rgba(232,162,74,.06);border-radius:10px}
+.onow{font-size:11px;color:var(--amber);font-weight:600}
+.ocnt{font-size:12px;color:var(--ink-faint);margin-top:3px}
+.ocnt b{color:var(--amber)}
+.commitbtn.office{width:auto;flex:none;margin-top:0;margin-left:auto;padding:8px 14px;font-size:13px}
