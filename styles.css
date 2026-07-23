@@ -498,3 +498,17 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .ocard .setlog{margin:4px 0 8px;min-height:20px}
 .ocard .logrow{margin-top:6px}
 .ocard .commitbtn{width:100%;margin-top:10px}
+/* объёмный цикл: карта недель */
+.vmap{display:flex;flex-wrap:wrap;gap:5px}
+.vcell{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:600;background:var(--bg2);border:1px solid var(--line);color:var(--ink-faint)}
+.vcell.past{opacity:.55}
+.vcell.wk{border-color:rgba(95,208,196,.35);color:var(--teal)}
+.vcell.dl{border-color:rgba(91,155,213,.4);color:var(--blue)}
+.vcell.ts{border-color:rgba(232,162,74,.5);color:var(--amber)}
+.vcell.cur{background:var(--teal);border-color:var(--teal);color:#0d1a18;transform:scale(1.08)}
+.vcell.ts.cur{background:var(--amber);border-color:var(--amber);color:#1a1207}
+.vlegend{display:flex;gap:14px;margin-top:10px;font-size:11px;color:var(--ink-faint)}
+.vlegend span{display:flex;align-items:center;gap:5px}
+.vl{width:10px;height:10px;border-radius:3px;display:inline-block;border:1px solid var(--line)}
+.vl.wk{border-color:var(--teal)} .vl.dl{border-color:var(--blue)} .vl.ts{border-color:var(--amber)}
