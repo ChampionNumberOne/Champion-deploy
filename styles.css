@@ -522,36 +522,40 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
   background:var(--bg2);border-radius:10px;padding:10px 12px;border-left:3px solid var(--teal)}
 .gmode-info b{color:var(--teal)}
 .gmode-info span{color:var(--ink-faint)}
-/* ===== Анимированные фигуры упражнений ===== */
+/* ===== Анимированные фигуры упражнений (объёмная фигура) ===== */
 .fgfig{display:block;overflow:visible}
-.fgfig .fg-body line{stroke:var(--amber);stroke-width:3.4;stroke-linecap:round;fill:none}
-.fgfig .fg-head{fill:var(--amber)}
-.fgfig .fg-torso{stroke-width:4}
-.fgfig .fg-eq{stroke:var(--ink-soft);stroke-width:3;stroke-linecap:round}
-.fgfig .fg-eq-thin{stroke:var(--ink-faint);stroke-width:1.6}
-.fgfig .fg-ground{stroke:var(--line2);stroke-width:2;stroke-linecap:round}
-.fgfig .fg-kb circle{fill:var(--teal)}
-.fgfig .fg-kb-h{stroke:var(--teal);stroke-width:2;fill:none;stroke-linecap:round}
-.fgfig .fg-band{stroke:var(--blue);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-dasharray:3 2.5}
 
-/* карточка упражнения: фигура слева, текст справа */
+/* ближние конечности и корпус — насыщенный цвет */
+.fgfig .fg-near{stroke:var(--amber);stroke-width:6.5;stroke-linecap:round}
+.fgfig .fg-near-tip{fill:var(--amber)}
+.fgfig .fg-torso{stroke:var(--amber);stroke-width:15;stroke-linecap:round}
+.fgfig .fg-head{fill:var(--amber)}
+
+/* дальние — приглушённые, дают ощущение объёма */
+.fgfig .fg-far{stroke:var(--amber);stroke-width:5.5;stroke-linecap:round;opacity:.42}
+.fgfig .fg-far-tip{fill:var(--amber);opacity:.42}
+
+/* сцена */
+.fgfig .fg-eq{stroke:var(--ink-soft);stroke-width:3.2;stroke-linecap:round}
+.fgfig .fg-eq-thin{stroke:var(--ink-faint);stroke-width:1.8}
+.fgfig .fg-ground{stroke:var(--line2);stroke-width:2.4;stroke-linecap:round}
+
+/* инвентарь */
+.fgfig .fg-kb circle{fill:var(--teal)}
+.fgfig .fg-kb-h{stroke:var(--teal);stroke-width:2.2;fill:none;stroke-linecap:round}
+.fgfig .fg-band{stroke:var(--blue);stroke-width:2.4;fill:none;stroke-linecap:round;stroke-dasharray:3.5 2.5}
+
+/* размещение в карточках */
 .fi-top{display:flex;gap:12px;align-items:flex-start}
 .fi-fig{flex:none;width:66px;height:66px;background:var(--bg2);border-radius:12px;
   display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}
 .fi-fig.sm{width:52px;height:52px;border-radius:10px}
 .fi-main{flex:1;min-width:0}
-
-/* фигура в строке выбора упражнений */
 .pk-fig{flex:none;width:44px;height:44px;background:var(--card);border-radius:9px;
   display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}
 .pickrow.on .pk-fig{border-color:rgba(232,162,74,.45)}
-
-/* фигура в офисном круге */
 .o-fig{flex:none;width:52px;height:52px;background:var(--card);border-radius:10px;
   display:flex;align-items:center;justify-content:center;border:1px solid var(--line);margin-right:10px}
 .ocard .ohead{align-items:center}
 
-/* уважение к настройке «меньше движения» */
-@media (prefers-reduced-motion: reduce){
-  .fgfig animate{display:none}
-}
+@media (prefers-reduced-motion: reduce){ .fgfig animateTransform,.fgfig animate{display:none} }
