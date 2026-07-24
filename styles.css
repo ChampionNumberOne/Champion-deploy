@@ -512,3 +512,13 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .vlegend span{display:flex;align-items:center;gap:5px}
 .vl{width:10px;height:10px;border-radius:3px;display:inline-block;border:1px solid var(--line)}
 .vl.wk{border-color:var(--teal)} .vl.dl{border-color:var(--blue)} .vl.ts{border-color:var(--amber)}
+/* GTG: подписанные блоки выбора движения и режима + пояснение */
+.gsel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:14px}
+.gsel-row{margin-bottom:12px}
+.gsel-row:last-of-type{margin-bottom:10px}
+.gsel-lab{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+  color:var(--ink-faint);margin-bottom:7px}
+.gmode-info{font-size:12.5px;line-height:1.55;color:var(--ink-soft);
+  background:var(--bg2);border-radius:10px;padding:10px 12px;border-left:3px solid var(--teal)}
+.gmode-info b{color:var(--teal)}
+.gmode-info span{color:var(--ink-faint)}
