@@ -522,55 +522,34 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
   background:var(--bg2);border-radius:10px;padding:10px 12px;border-left:3px solid var(--teal)}
 .gmode-info b{color:var(--teal)}
 .gmode-info span{color:var(--ink-faint)}
-/* ===== Анимированные фигуры упражнений =====
-   Приём читаемости на малом размере: каждая кость рисуется дважды —
-   сначала толстой линией цвета фона (halo), затем цветной поверх.
-   На пересечениях появляется зазор, и силуэт не сливается в пятно. */
+/* ===== Фигуры упражнений — простой «человечек из палок» ===== */
+.fgfig{display:block;overflow:visible}
 
-.fgfig{display:block;overflow:visible; --fig-bg:var(--bg2)}
-
-/* обводка фоном — «прорезает» зазоры между конечностями */
-.fgfig .fg-halo{stroke:var(--fig-bg);stroke-width:8.5;stroke-linecap:round}
-.fgfig .fg-halo-f{fill:var(--fig-bg)}
-
-/* ближние конечности */
-.fgfig .fg-near{stroke:var(--amber);stroke-width:4.4;stroke-linecap:round}
-.fgfig .fg-near-tip{fill:var(--amber)}
-/* корпус — чуть толще конечностей, но не «бочка» */
-.fgfig .fg-torso{stroke:var(--amber);stroke-width:6.8;stroke-linecap:round}
-.fgfig .fg-neck{stroke:var(--amber);stroke-width:3.6;stroke-linecap:round}
-.fgfig .fg-shoulders{stroke:var(--amber);stroke-width:6.2;stroke-linecap:round}
-.fgfig .fg-hips{stroke:var(--amber);stroke-width:6.2;stroke-linecap:round}
+/* все кости одной толщиной — предсказуемо и читаемо */
+.fgfig .fg-limb{stroke:var(--amber);stroke-width:3.2;stroke-linecap:round;fill:none}
 .fgfig .fg-head{fill:var(--amber)}
-/* дальние — тоньше и приглушены, дают глубину */
-.fgfig .fg-far{stroke:var(--amber);stroke-width:3.8;stroke-linecap:round;opacity:.3}
-.fgfig .fg-far-tip{fill:var(--amber);opacity:.3}
 
 /* сцена */
-.fgfig .fg-eq{stroke:var(--ink-soft);stroke-width:2.8;stroke-linecap:round}
+.fgfig .fg-eq{stroke:var(--ink-soft);stroke-width:2.6;stroke-linecap:round}
 .fgfig .fg-eq-thin{stroke:var(--ink-faint);stroke-width:1.6}
-.fgfig .fg-ground{stroke:var(--line2);stroke-width:2.2;stroke-linecap:round}
+.fgfig .fg-ground{stroke:var(--line2);stroke-width:2;stroke-linecap:round}
 
 /* инвентарь */
 .fgfig .fg-kb circle{fill:var(--teal)}
-.fgfig .fg-kb-h{stroke:var(--teal);stroke-width:2;fill:none;stroke-linecap:round}
-.fgfig .fg-band{stroke:var(--blue);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-dasharray:3.5 2.5}
+.fgfig .fg-kb-h{stroke:var(--teal);stroke-width:1.8;fill:none;stroke-linecap:round}
+.fgfig .fg-band{stroke:var(--blue);stroke-width:2;fill:none;stroke-linecap:round;stroke-dasharray:3 2.5}
 
-/* ---- размещение: фигурам нужен размер, иначе не читаются ---- */
+/* размещение в карточках */
 .fi-top{display:flex;gap:12px;align-items:flex-start}
 .fi-fig{flex:none;width:86px;height:86px;background:var(--bg2);border-radius:14px;
   display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}
 .fi-fig.sm{width:64px;height:64px;border-radius:12px}
 .fi-main{flex:1;min-width:0}
-
 .pk-fig{flex:none;width:58px;height:58px;background:var(--card);border-radius:11px;
   display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}
-.pk-fig .fgfig{--fig-bg:var(--card)}
 .pickrow.on .pk-fig{border-color:rgba(232,162,74,.45)}
-
 .o-fig{flex:none;width:64px;height:64px;background:var(--card);border-radius:12px;
   display:flex;align-items:center;justify-content:center;border:1px solid var(--line);margin-right:10px}
-.o-fig .fgfig{--fig-bg:var(--card)}
 .ocard .ohead{align-items:center}
 
 @media (prefers-reduced-motion: reduce){ .fgfig animateTransform,.fgfig animate{display:none} }
