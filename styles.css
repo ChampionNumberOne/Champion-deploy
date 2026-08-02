@@ -1,3 +1,5 @@
+
+
 :root{
   --bg:#0e1116; --bg2:#141923; --card:#191f2b; --card2:#1f2734; --card3:#252f3f;
   --line:#2a3343; --line2:#36425a;
@@ -522,6 +524,12 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
   background:var(--bg2);border-radius:10px;padding:10px 12px;border-left:3px solid var(--teal)}
 .gmode-info b{color:var(--teal)}
 .gmode-info span{color:var(--ink-faint)}
+/* ===================================================================
+   ФИГУРЫ УПРАЖНЕНИЙ + СЕРИИ + ТАЙМЕРЫ
+   Единый блок. Идёт последним в styles.css.
+   Классы сверены с js/ui/components/figure.js — лишних тут нет.
+   =================================================================== */
+
 /* ===== Фигура упражнения ===== */
 .fgfig{display:block;overflow:visible}
 
@@ -537,8 +545,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
    объявляет контейнер: плитки разного цвета (--card и --bg2). */
 .fgfig .fg-ko{stroke:var(--fig-bg,#191f2b);stroke-linecap:round;stroke-linejoin:round;fill:none}
 
-/* Дальняя рука/нога — та же кость, приглушена для глубины (вид сбоку).
-   Выбивки не имеет намеренно: должна уходить ЗА ближнюю, а не спорить с ней. */
+/* Дальняя рука/нога В ВИДЕ СБОКУ — та же кость, приглушена для глубины.
+   В виде спереди этот класс не применяется: там вторая рука и вторая
+   нога такие же настоящие, как первые, и приглушение давало коричневое
+   пятно рядом с яркой фигурой. Развилку делает figure.js. */
 .fgfig .fg-far{stroke:var(--amber);stroke-linecap:round;stroke-linejoin:round;fill:none;opacity:.3}
 
 /* Голова — единственный залитый элемент */
@@ -575,3 +585,36 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .ocard .ohead{align-items:center}
 
 @media (prefers-reduced-motion: reduce){ .fgfig animate{display:none} }
+
+/* ===== Выбор числа серий ===== */
+.serpick{margin:12px 0 4px;padding:12px 0 0;border-top:1px solid var(--line)}
+.serpick .sp-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.serpick .sp-label{font-size:14px;font-weight:600}
+.serpick .sp-hint{font-size:12px;color:var(--ink-faint);margin-top:2px}
+.serpick .sp-note{font-size:12.5px;line-height:1.5;margin-top:10px;padding:9px 11px;border-radius:10px;
+  background:var(--bg2);color:var(--ink-faint)}
+.serpick .sp-note.ok{color:var(--green);background:rgba(111,207,127,.08)}
+.serpick .sp-note.low{color:var(--ink-soft);background:rgba(91,141,239,.08)}
+.serpick .sp-note.high{color:var(--amber);background:rgba(232,162,74,.09)}
+
+/* ===== Два таймера отдыха ===== */
+.rest-two{display:flex;flex-direction:column;gap:8px}
+.rest-line{display:flex;align-items:center;gap:10px}
+.rest-line .rl-label{flex:1;font-size:13px;color:var(--ink-soft)}
+.rest-line .stepmini span{min-width:56px}
+.ser-note{font-size:12.5px;line-height:1.5;color:var(--ink-faint);margin-top:10px}
+
+/* Заголовок серии и кнопка перерыва между сериями */
+.series-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  font-size:13px;font-weight:700;color:var(--ink-soft);margin:14px 2px 6px}
+.series-head .series-sub{font-size:11.5px;font-weight:400;color:var(--ink-faint)}
+button.series-gap{display:block;width:100%;text-align:center;font-size:12px;color:var(--ink-faint);
+  padding:10px;margin:8px 0;background:var(--bg2);border:1px dashed var(--line2);border-radius:12px;cursor:pointer}
+button.series-gap:active{background:var(--card2)}
+
+/* ===== Предупреждение о прерывании серии ===== */
+.card.breakwarn{border-color:rgba(224,122,111,.45);background:rgba(224,122,111,.06);margin:8px 0}
+.breakwarn .bw-head{font-size:14px;font-weight:700;color:#e07a6f;margin-bottom:8px}
+.breakwarn .bw-msg{font-size:13.5px;line-height:1.55;color:var(--ink-soft);margin-bottom:8px}
+.breakwarn .bw-sci{font-size:12.5px;line-height:1.5;color:var(--ink-faint);margin-bottom:12px}
+
