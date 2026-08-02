@@ -522,76 +522,56 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
   background:var(--bg2);border-radius:10px;padding:10px 12px;border-left:3px solid var(--teal)}
 .gmode-info b{color:var(--teal)}
 .gmode-info span{color:var(--ink-faint)}
-/* ===================================================================
-   ФИГУРЫ УПРАЖНЕНИЙ + СЕРИИ + ТАЙМЕРЫ
-   Единый блок. Идёт последним в styles.css.
-   Классы сверены с js/ui/components/figure.js — лишних тут нет.
-   =================================================================== */
-
 /* ===== Фигура упражнения ===== */
 .fgfig{display:block;overflow:visible}
 
-/* Кости. fill:none обязателен — тело рисуется полилиниями, и любая
-   заливка замкнёт контур руки/ноги в пятно. Толщина 11 при поле 100
-   даёт ~6px на карточке 58px: тоньше уже не читается. */
-.fgfig .fg-limb{stroke:var(--amber);stroke-width:11;stroke-linecap:round;stroke-linejoin:round;fill:none}
-/* Дальняя рука/нога — та же кость, приглушена для глубины (вид сбоку) */
-.fgfig .fg-far{stroke:var(--amber);stroke-width:11;stroke-linecap:round;stroke-linejoin:round;fill:none;opacity:.32}
+/* Кости. Толщина приходит атрибутом stroke-width из figure.js и здесь
+   НЕ задаётся намеренно: CSS-свойство имеет приоритет над атрибутом в
+   SVG, и одна строчка stroke-width тут молча обнулит весь новый рендер
+   (торс толще конечностей, выбивка шире линии). */
+.fgfig .fg-limb{stroke:var(--amber);stroke-linecap:round;stroke-linejoin:round;fill:none}
+
+/* Выбивка: копия кости цветом фона, лежит под ней и шире на 5.2.
+   Именно она не даёт пересекающимся конечностям слипнуться в пятно.
+   Цвет обязан совпадать с фоном плитки — отсюда --fig-bg, которую
+   объявляет контейнер: плитки разного цвета (--card и --bg2). */
+.fgfig .fg-ko{stroke:var(--fig-bg,#191f2b);stroke-linecap:round;stroke-linejoin:round;fill:none}
+
+/* Дальняя рука/нога — та же кость, приглушена для глубины (вид сбоку).
+   Выбивки не имеет намеренно: должна уходить ЗА ближнюю, а не спорить с ней. */
+.fgfig .fg-far{stroke:var(--amber);stroke-linecap:round;stroke-linejoin:round;fill:none;opacity:.3}
+
 /* Голова — единственный залитый элемент */
 .fgfig .fg-head{fill:var(--amber);stroke:none}
 
 /* Сцена */
-.fgfig .fg-eq{stroke:var(--ink-soft);stroke-width:5;stroke-linecap:round}
-.fgfig .fg-ground{stroke:var(--line2);stroke-width:5;stroke-linecap:round}
+.fgfig .fg-eq{stroke:var(--ink-soft);stroke-width:4.4;stroke-linecap:round}
+.fgfig .fg-eq-fill{fill:#39435a}          /* коробка под ноги — отжимания с возвышения */
+.fgfig .fg-ground{stroke:var(--line2);stroke-width:4.4;stroke-linecap:round}
 
 /* Инвентарь — контрастным цветом, чтобы отличать упражнения
    с одинаковым силуэтом */
 .fgfig .fg-kb{fill:var(--teal)}
-.fgfig .fg-band{stroke:var(--blue);stroke-width:4;fill:none;stroke-linecap:round;stroke-dasharray:5 4}
+.fgfig .fg-band{stroke:var(--blue);stroke-width:3.6;fill:none;stroke-linecap:round;stroke-dasharray:5 4}
 
-/* ===== Размещение фигур в карточках ===== */
+/* ===== Размещение фигур в карточках =====
+   Каждая плитка объявляет --fig-bg под цвет собственной заливки:
+   без этого выбивка проступит тёмным контуром поверх фигуры. */
 .fi-top{display:flex;gap:12px;align-items:flex-start}
-.fi-fig{flex:none;width:86px;height:86px;background:var(--bg2);border-radius:14px;
+.fi-fig{--fig-bg:var(--bg2);
+  flex:none;width:86px;height:86px;background:var(--bg2);border-radius:14px;
   display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}
 .fi-fig.sm{width:64px;height:64px;border-radius:12px}
 .fi-main{flex:1;min-width:0}
-.pk-fig{flex:none;width:58px;height:58px;background:var(--card);border-radius:11px;
+
+.pk-fig{--fig-bg:var(--card);
+  flex:none;width:58px;height:58px;background:var(--card);border-radius:11px;
   display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}
 .pickrow.on .pk-fig{border-color:rgba(232,162,74,.45)}
-.o-fig{flex:none;width:64px;height:64px;background:var(--card);border-radius:12px;
+
+.o-fig{--fig-bg:var(--card);
+  flex:none;width:64px;height:64px;background:var(--card);border-radius:12px;
   display:flex;align-items:center;justify-content:center;border:1px solid var(--line);margin-right:10px}
 .ocard .ohead{align-items:center}
 
 @media (prefers-reduced-motion: reduce){ .fgfig animate{display:none} }
-
-/* ===== Выбор числа серий ===== */
-.serpick{margin:12px 0 4px;padding:12px 0 0;border-top:1px solid var(--line)}
-.serpick .sp-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.serpick .sp-label{font-size:14px;font-weight:600}
-.serpick .sp-hint{font-size:12px;color:var(--ink-faint);margin-top:2px}
-.serpick .sp-note{font-size:12.5px;line-height:1.5;margin-top:10px;padding:9px 11px;border-radius:10px;
-  background:var(--bg2);color:var(--ink-faint)}
-.serpick .sp-note.ok{color:var(--green);background:rgba(111,207,127,.08)}
-.serpick .sp-note.low{color:var(--ink-soft);background:rgba(91,141,239,.08)}
-.serpick .sp-note.high{color:var(--amber);background:rgba(232,162,74,.09)}
-
-/* ===== Два таймера отдыха ===== */
-.rest-two{display:flex;flex-direction:column;gap:8px}
-.rest-line{display:flex;align-items:center;gap:10px}
-.rest-line .rl-label{flex:1;font-size:13px;color:var(--ink-soft)}
-.rest-line .stepmini span{min-width:56px}
-.ser-note{font-size:12.5px;line-height:1.5;color:var(--ink-faint);margin-top:10px}
-
-/* Заголовок серии и кнопка перерыва между сериями */
-.series-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
-  font-size:13px;font-weight:700;color:var(--ink-soft);margin:14px 2px 6px}
-.series-head .series-sub{font-size:11.5px;font-weight:400;color:var(--ink-faint)}
-button.series-gap{display:block;width:100%;text-align:center;font-size:12px;color:var(--ink-faint);
-  padding:10px;margin:8px 0;background:var(--bg2);border:1px dashed var(--line2);border-radius:12px;cursor:pointer}
-button.series-gap:active{background:var(--card2)}
-
-/* ===== Предупреждение о прерывании серии ===== */
-.card.breakwarn{border-color:rgba(224,122,111,.45);background:rgba(224,122,111,.06);margin:8px 0}
-.breakwarn .bw-head{font-size:14px;font-weight:700;color:#e07a6f;margin-bottom:8px}
-.breakwarn .bw-msg{font-size:13.5px;line-height:1.55;color:var(--ink-soft);margin-bottom:8px}
-.breakwarn .bw-sci{font-size:12.5px;line-height:1.5;color:var(--ink-faint);margin-bottom:12px}
