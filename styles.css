@@ -1,5 +1,7 @@
 
 
+
+
 :root{
   --bg:#0e1116; --bg2:#141923; --card:#191f2b; --card2:#1f2734; --card3:#252f3f;
   --line:#2a3343; --line2:#36425a;
@@ -530,43 +532,36 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
    Классы сверены с js/ui/components/figure.js — лишних тут нет.
    =================================================================== */
 
-/* ===== Фигура упражнения ===== */
+/* ===== Фигура упражнения (v5, силуэт) ===== */
 .fgfig{display:block;overflow:visible}
 
-/* Кости. Толщина приходит атрибутом stroke-width из figure.js и здесь
-   НЕ задаётся намеренно: CSS-свойство имеет приоритет над атрибутом в
-   SVG, и одна строчка stroke-width тут молча обнулит весь новый рендер
-   (торс толще конечностей, выбивка шире линии). */
-.fgfig .fg-limb{stroke:var(--amber);stroke-linecap:round;stroke-linejoin:round;fill:none}
+/* Тело — ЗАЛИВКА, а не обводка. stroke-width здесь не нужен вообще:
+   толщина конечности задаётся геометрией формы в figure.js. */
+.fgfig .s-body{fill:var(--amber);stroke:none}
 
-/* Выбивка: копия кости цветом фона, лежит под ней и шире на 5.2.
-   Именно она не даёт пересекающимся конечностям слипнуться в пятно.
-   Цвет обязан совпадать с фоном плитки — отсюда --fig-bg, которую
-   объявляет контейнер: плитки разного цвета (--card и --bg2). */
-.fgfig .fg-ko{stroke:var(--fig-bg,#191f2b);stroke-linecap:round;stroke-linejoin:round;fill:none}
+/* Дальняя рука/нога в виде СБОКУ — притемнённый тон, даёт глубину.
+   Во фронтальном ракурсе этот класс не применяется: там обе половины
+   тела равноправны, и притемнение читалось бы как грязь. */
+.fgfig .s-far{fill:#96632a;stroke:none}
 
-/* Дальняя рука/нога В ВИДЕ СБОКУ — та же кость, приглушена для глубины.
-   В виде спереди этот класс не применяется: там вторая рука и вторая
-   нога такие же настоящие, как первые, и приглушение давало коричневое
-   пятно рядом с яркой фигурой. Развилку делает figure.js. */
-.fgfig .fg-far{stroke:var(--amber);stroke-linecap:round;stroke-linejoin:round;fill:none;opacity:.3}
-
-/* Голова — единственный залитый элемент */
-.fgfig .fg-head{fill:var(--amber);stroke:none}
+/* Выбивка: та же форма, залитая и обведённая цветом фона, лежит под
+   основной. Ближняя нога перестаёт сливаться с торсом.
+   Цвет обязан совпадать с фоном плитки — отсюда --fig-bg. */
+.fgfig .s-ko{fill:var(--fig-bg,#191f2b);stroke:var(--fig-bg,#191f2b);
+  stroke-width:6;stroke-linejoin:round}
 
 /* Сцена */
-.fgfig .fg-eq{stroke:var(--ink-soft);stroke-width:4.4;stroke-linecap:round}
-.fgfig .fg-eq-fill{fill:#39435a}          /* коробка под ноги — отжимания с возвышения */
-.fgfig .fg-ground{stroke:var(--line2);stroke-width:4.4;stroke-linecap:round}
+.fgfig .s-eq{stroke:var(--ink-soft);stroke-width:4.5;stroke-linecap:round}
+.fgfig .s-ground{stroke:var(--line2);stroke-width:4.5;stroke-linecap:round}
 
-/* Инвентарь — контрастным цветом, чтобы отличать упражнения
-   с одинаковым силуэтом */
-.fgfig .fg-kb{fill:var(--teal)}
-.fgfig .fg-band{stroke:var(--blue);stroke-width:3.6;fill:none;stroke-linecap:round;stroke-dasharray:5 4}
+/* Инвентарь контрастным цветом — различает упражнения с общим силуэтом */
+.fgfig .s-kb{fill:var(--teal)}
+.fgfig .s-band{stroke:var(--blue);stroke-width:3.6;fill:none;
+  stroke-linecap:round;stroke-dasharray:5 4}
 
 /* ===== Размещение фигур в карточках =====
-   Каждая плитка объявляет --fig-bg под цвет собственной заливки:
-   без этого выбивка проступит тёмным контуром поверх фигуры. */
+   Каждая плитка объявляет --fig-bg под цвет своей заливки: иначе
+   выбивка проступит тёмным пятном поверх фигуры. */
 .fi-top{display:flex;gap:12px;align-items:flex-start}
 .fi-fig{--fig-bg:var(--bg2);
   flex:none;width:86px;height:86px;background:var(--bg2);border-radius:14px;
