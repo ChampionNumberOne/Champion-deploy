@@ -2,6 +2,7 @@
 
 
 
+
 :root{
   --bg:#0e1116; --bg2:#141923; --card:#191f2b; --card2:#1f2734; --card3:#252f3f;
   --line:#2a3343; --line2:#36425a;
@@ -613,3 +614,49 @@ button.series-gap:active{background:var(--card2)}
 .breakwarn .bw-msg{font-size:13.5px;line-height:1.55;color:var(--ink-soft);margin-bottom:8px}
 .breakwarn .bw-sci{font-size:12.5px;line-height:1.5;color:var(--ink-faint);margin-bottom:12px}
 
+
+/* ===================================================================
+   ФИГУРЫ УПРАЖНЕНИЙ — v7, человек из палок
+   Дописано в конец, как требует регламент проекта.
+   Правила ниже перекрывают одноимённые выше по каскаду: селекторы с
+   тегом `line` специфичнее, чем прежние `.fgfig .s-body`.
+   =================================================================== */
+
+/* Тело — ОБВОДКА, а не заливка. Заливок в v7 нет вообще: у палок
+   рука физически не может утонуть в корпусе, потому что корпус сам
+   линия. Толщина задаётся здесь, а не в геометрии. */
+.fgfig .s-body line{stroke:var(--amber);stroke-width:5.4;stroke-linecap:round;fill:none}
+.fgfig .s-body .s-j,
+.fgfig .s-body .s-hd{fill:var(--amber);stroke:none}
+
+/* Дальняя рука и нога — приглушённый тон, даёт глубину и не даёт
+   принять две ноги за одну. */
+.fgfig .s-far line{stroke:#8c5c28;stroke-width:5;stroke-linecap:round;fill:none}
+.fgfig .s-far .s-j,
+.fgfig .s-far .s-hd{fill:#8c5c28;stroke:none}
+
+/* Подложка под ближними конечностями цветом фона плитки: линия руки
+   не сливается с линией корпуса, когда проходит поверх него.
+   Цвет обязан совпадать с фоном плитки — отсюда --fig-bg. */
+.fgfig .s-halo line{stroke:var(--fig-bg,#191f2b);stroke-width:10;stroke-linecap:round;fill:none}
+.fgfig .s-halo .s-j,
+.fgfig .s-halo .s-hd{fill:var(--fig-bg,#191f2b);stroke:none}
+
+/* Стартовая поза тонким контуром: приседание видно как приседание
+   даже на статичном кадре. */
+.fgfig .s-ghost{fill:none;stroke:var(--amber);stroke-width:2;opacity:.30;stroke-linecap:round}
+
+/* Стрелка направления — по точке, прошедшей наибольший путь. */
+.fgfig .s-arrow{fill:none;stroke:var(--teal);stroke-width:2.4;stroke-linecap:round}
+.fgfig .s-arrowhead{fill:var(--teal)}
+
+/* Сцена */
+.fgfig .s-eq{stroke:var(--ink-soft);stroke-width:4;stroke-linecap:round;fill:none}
+.fgfig .s-ground{stroke:var(--line2);stroke-width:4;stroke-linecap:round;fill:none}
+
+/* v5 анимировал тег <animate>, v7 — <animateTransform>. Правило обязано
+   гасить оба, иначе reduced-motion молча перестаёт работать. */
+@media (prefers-reduced-motion: reduce){
+  .fgfig animate,
+  .fgfig animateTransform{display:none}
+}
