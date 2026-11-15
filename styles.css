@@ -99,7 +99,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .setrow.extra{border-style:dashed;border-color:var(--line2)}
 .setrow .target{font-size:12px;color:var(--ink-faint)}
 .statgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+/* Только плитки статистики. Раньше селектор был просто «.stat» и задевал всё,
+   что помечено stat как «статика»: метку «Развивающая статика» и подпись на карте тела. */
+.statgrid .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
 .stat .n{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--amber)}
 .stat .l{font-size:12px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
 .histrow{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
@@ -660,3 +662,63 @@ button.series-gap:active{background:var(--card2)}
   .fgfig animate,
   .fgfig animateTransform{display:none}
 }
+
+
+/* ===================================================================
+   PWA: ШРИФТЫ ЛОКАЛЬНО, БЕЗОПАСНЫЕ ЗОНЫ, БЛОК «ДАННЫЕ И УСТАНОВКА»
+   Дописано в конец, как требует регламент проекта.
+   =================================================================== */
+
+/* Шрифты лежат в папке fonts/ и попадают в офлайн-кеш. Раньше они
+   грузились с Google Fonts: без сети приложение показывало системный
+   шрифт, а при недоступном Google запуск ждал таймаута.
+   Путь ../fonts/ — относительно css/; сборка правит его на fonts/.
+   Fraunces содержит только латиницу и цифры (кириллицы в нём нет и не
+   было): русские заголовки, как и раньше, рисуются запасным Georgia/serif. */
+@font-face{font-family:'Manrope';font-style:normal;font-weight:200 800;font-display:swap;
+  src:url(fonts/manrope-cyrillic-wght-normal.woff2) format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:200 800;font-display:swap;
+  src:url(fonts/manrope-latin-wght-normal.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url(fonts/fraunces-latin-wght-normal.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* Установленное приложение на iPhone рисуется под строкой состояния и
+   «чёлкой» — отодвигаем содержимое. В браузере и Telegram отступ равен 0. */
+#app{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+
+/* Блок «Данные и установка» в профиле */
+.datacard{padding:6px 18px}
+.dc-row{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.dc-row:last-of-type{border-bottom:none}
+/* кнопки и форма переноса — во всю ширину карточки, а не в узкой правой колонке */
+.dc-wide{padding:14px 0 14px}
+.dc-btns{display:flex;gap:8px}
+.dc-btns .fchip{flex:1;text-align:center;padding:10px 8px}
+.dc-k{flex:none;width:92px;font-size:13px;font-weight:700;color:var(--ink)}
+.dc-v{flex:1;min-width:0;font-size:13.5px;line-height:1.55;color:var(--ink-soft)}
+.dc-v b{color:var(--ink)}
+.dc-url{margin:8px 0;padding:9px 11px;border-radius:10px;background:var(--bg2);border:1px solid var(--line);
+  font-size:12.5px;color:var(--amber);word-break:break-all;user-select:all;-webkit-user-select:all}
+.datacard .fchip{cursor:pointer;font-family:var(--sans)}
+.bk-box{margin-top:12px;padding:14px;border-radius:12px;background:var(--bg2);border:1px solid var(--line)}
+.bk-box .fchip{background:var(--card2)}
+.bk-text{display:block;width:100%;height:84px;margin:10px 0;padding:9px 11px;border-radius:10px;resize:none;
+  background:var(--card);border:1px solid var(--line);color:var(--ink-soft);
+  font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;line-height:1.4;outline:none}
+.bk-text:focus{border-color:var(--line2)}
+.bk-found{margin-top:12px}
+.bk-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.bk-line{font-size:13px;line-height:1.55;color:var(--ink-soft)}
+.bk-found .btn{flex:1;white-space:nowrap;padding-left:10px;padding-right:10px}
+.bk-link{display:block;margin:12px 0 0;padding:0;background:none;border:none;color:var(--ink-faint);
+  font-family:var(--sans);font-size:12.5px;text-decoration:underline;cursor:pointer}
+.bk-file{font-size:12px;color:var(--ink-faint);margin-bottom:10px;word-break:break-all}
+.bk-cols{display:flex;gap:10px;margin:10px 0 12px}
+.bk-col{flex:1;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 11px}
+.bk-colh{font-size:11px;font-weight:700;letter-spacing:.3px;color:var(--ink-faint);margin-bottom:6px}
+.bk-li{display:flex;flex-direction:column;font-size:12px;color:var(--ink-faint);padding:4px 0}
+.bk-li b{font-size:13.5px;color:var(--ink);font-weight:600}
+
