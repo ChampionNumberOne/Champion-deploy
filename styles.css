@@ -787,3 +787,69 @@ button.series-gap:active{background:var(--card2)}
 .cw-why summary{color:var(--ink-soft)}
 .bm-src{color:var(--ink-soft)}
 
+
+/* ---------- Совместный план: предупреждение перед тяжёлой тренировкой ---------- */
+.guard-ov{position:fixed;inset:0;z-index:1000;background:rgba(8,10,14,.78);display:flex;align-items:flex-end;justify-content:center;padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom))}
+.guard-box{width:100%;max-width:440px;background:var(--card);border:1px solid rgba(224,160,95,.45);border-radius:20px;padding:22px 18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.guard-ico{width:38px;height:38px;border-radius:50%;background:rgba(224,160,95,.16);color:var(--amber);font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.guard-text{color:var(--ink);font-size:16px;line-height:1.45;margin-bottom:10px}
+.guard-ask{color:var(--ink);font-size:17px;font-weight:700;line-height:1.35;margin-bottom:16px}
+.guard-box .btn{margin-top:8px}
+.guard-box .btn.guard-risk{color:var(--red);border-color:rgba(224,122,111,.45)}
+.card.crosswarn.planline{background:rgba(91,155,213,.08);border-color:rgba(91,155,213,.4)}
+
+/* ---------- Общая карточка «План на сегодня» ---------- */
+.card.dayplan{padding:16px 16px 14px}
+.dp-head{font-family:var(--serif,inherit);font-weight:700;font-size:17px;color:var(--ink);margin-bottom:10px}
+.dp-row{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:11px 12px;margin-bottom:8px;color:var(--ink);font:inherit;cursor:pointer}
+.dp-row.cur{border-color:rgba(224,160,95,.55);cursor:default}
+.dp-n{flex:none;width:24px;height:24px;border-radius:50%;background:rgba(224,160,95,.16);color:var(--amber);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.dp-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.dp-t b{font-size:15px}.dp-t span{font-size:14px;color:var(--ink-soft);line-height:1.3}
+.dp-go{flex:none;font-size:12.5px;color:var(--ink-faint)}
+.dp-row:not(.cur) .dp-go{color:var(--amber)}
+.dp-why,.dp-ready,.dp-ask,.dp-outnote{font-size:13.5px;line-height:1.4;color:var(--ink-soft);margin:6px 2px}
+.dp-ask{color:var(--ink);font-weight:600;margin-top:10px}
+.dp-chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.dp-link{background:none;border:none;padding:0;color:var(--amber);font:inherit;text-decoration:underline;cursor:pointer}
+.dp-out{display:block;width:100%;margin-top:10px;background:none;border:1px dashed var(--line);border-radius:12px;padding:10px;color:var(--ink-soft);font:inherit;font-size:13.5px;cursor:pointer}
+.dp-solo{margin:0 0 4px}
+.weekplan{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.wp-title{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px}
+.wp-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.wp-cell{display:flex;flex-direction:column;align-items:center;gap:5px;padding:7px 0;border-radius:10px;background:var(--card2);border:1px solid transparent}
+.wp-cell.today{border-color:rgba(224,160,95,.55)}
+.wp-wd{font-size:11.5px;color:var(--ink-soft)}
+.wp-m{display:inline-block;width:12px;height:12px;border-radius:3px;border:1.5px solid transparent;box-sizing:border-box}
+.wp-m.pu{border-radius:50%}
+.wp-m.pu.h{background:var(--amber);border-color:var(--amber)}
+.wp-m.pu.l{border-color:var(--amber)}
+.wp-m.ps.h{background:var(--teal);border-color:var(--teal)}
+.wp-m.ps.l{border-color:var(--teal)}
+.wp-legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;font-size:12px;color:var(--ink-soft)}
+.wp-legend span{display:inline-flex;align-items:center;gap:5px}
+.wp-note{font-size:12px;color:var(--ink-faint);margin-top:6px;line-height:1.35}
+.out-box{max-height:88vh;overflow:auto}
+.out-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.out-opt{text-align:left;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:10px;color:var(--ink);font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:3px}
+.out-opt span{font-size:12px;color:var(--ink-soft);line-height:1.3}
+.out-opt.on{border-color:var(--amber);background:rgba(224,160,95,.12)}
+.vreps{display:flex;align-items:center;gap:12px;margin-top:12px;color:var(--ink-soft);font-size:14px}
+.vreps span{flex:1}.vreps b{min-width:34px;text-align:center;font-size:22px;color:var(--teal)}
+details.weekplan summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;margin-bottom:0}
+details.weekplan summary::-webkit-details-marker{display:none}
+details.weekplan summary::after{content:'показать ▾';letter-spacing:0;text-transform:none;color:var(--amber);font-size:12.5px}
+details.weekplan[open] summary::after{content:'скрыть ▴'}
+details.weekplan[open] summary{margin-bottom:8px}
+
+/* ---------- Фигурки v8: инвентарь ---------- */
+.fgfig .s-body .s-kb{fill:var(--teal);stroke:none}
+.fgfig .s-far .s-kb{fill:#3a8f88;stroke:none}
+.fgfig .s-halo .s-kb{fill:var(--fig-bg,#191f2b);stroke:var(--fig-bg,#191f2b);stroke-width:3}
+.fgfig .s-band{stroke:var(--blue);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:none;fill:none;opacity:.95}
+.fgfig .s-band{stroke-width:3.2}
+.fgfig .s-anchor{fill:var(--ink-soft)}
+.dp-row{padding:9px 10px;margin-bottom:6px}
+.dp-t{display:block;font-size:14.5px;line-height:1.3;color:var(--ink-soft)}
+.dp-t b{color:var(--ink);font-size:14.5px}
+.dp-out{margin-top:12px}
