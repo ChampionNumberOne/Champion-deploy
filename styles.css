@@ -99,8 +99,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .setrow.extra{border-style:dashed;border-color:var(--line2)}
 .setrow .target{font-size:12px;color:var(--ink-faint)}
 .statgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
-/* Только плитки статистики. Раньше селектор был просто «.stat» и задевал всё,
-   что помечено stat как «статика»: метку «Развивающая статика» и подпись на карте тела. */
+
 .statgrid .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
 .stat .n{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--amber)}
 .stat .l{font-size:12px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
@@ -185,7 +184,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .sw::after{content:"";position:absolute;top:2px;left:2px;width:21px;height:21px;border-radius:50%;background:var(--ink-soft);transition:.2s}
 .sw.on{background:var(--amber)}.sw.on::after{left:21px;background:#241704}
 
-/* ===== Фича 1: следующая тренировка + мини-календарь ===== */
+
 .nextworkout{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin:12px 0;position:relative;overflow:hidden}
 .nextworkout::before{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(232,162,74,.08),transparent 70%);pointer-events:none}
 .nw-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
@@ -212,8 +211,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .mc-lg{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:middle}
 .mc-lg.done{background:var(--green)}.mc-lg.next{background:var(--amber)}.mc-lg.today{background:var(--ink-soft)}
 
-/* ===== Фаза 2: объяснение типов, напоминание, арена, судейство ===== */
-/* первое объяснение типа тренировки */
+
+
 .explain{background:var(--card);border:1px solid var(--line2);border-left:3px solid var(--amber);border-radius:16px;padding:16px 18px;margin:14px 0}
 .explain.dyn{border-left-color:var(--blue)}.explain.stat{border-left-color:var(--purple)}
 .explain.supp{border-left-color:var(--green)}.explain.rec{border-left-color:var(--ink-soft)}
@@ -224,7 +223,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .ex-row{display:flex;gap:10px;font-size:13.5px;line-height:1.55;color:var(--ink-soft);padding:6px 0;border-top:1px solid var(--line)}
 .ex-k{flex:none;width:96px;color:var(--ink);font-weight:700}
 
-/* внутренний баннер-напоминание */
+
 .remind{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,rgba(90,169,230,.12),transparent);
   border:1px solid rgba(90,169,230,.3);border-radius:16px;padding:13px 14px;margin:12px 0}
 .remind .rm-ico{font-size:20px}
@@ -232,7 +231,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .remind .rm-t{font-size:14px;line-height:1.45}
 .remind .rm-x{background:none;border:none;color:var(--ink-faint);font-size:20px;cursor:pointer;padding:0 4px}
 
-/* арена / рейтинги */
+
 .rdef{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}
 .rdef:first-of-type{border-top:none}
 .rdef-i{font-size:22px;width:28px;text-align:center}
@@ -253,7 +252,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .se-s{font-size:11.5px;color:var(--ink-faint);margin:4px 0 8px;line-height:1.4}
 .se-p{font-size:11.5px;color:var(--amber);font-weight:600}
 
-/* судейство */
+
 .judgestat{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:12.5px;color:var(--ink-soft);
   background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:8px 0}
 .judgestat .jrank{color:var(--teal);font-weight:700}
@@ -271,7 +270,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .vc-res{font-size:12.5px;font-weight:600;margin-top:6px}
 .vc-res.ok{color:var(--green)}.vc-res.no{color:var(--ink-faint)}
 .fognote{margin:2px 0}
-/* ===== Таймер отдыха между подходами ===== */
+
 .card.rest{position:relative;transition:.25s}
 .card.rest.on{border-color:rgba(232,162,74,.4)}
 .card.rest.done{border-color:rgba(111,207,127,.5);background:rgba(111,207,127,.06)}
@@ -285,7 +284,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .rest-ctrls{display:flex;align-items:center;justify-content:center;gap:14px}
 .rest-note{font-size:12px;color:var(--ink-faint);line-height:1.5;margin-top:12px;text-align:center}
 .rest-note b{color:var(--ink-soft)}
-/* ===== Круг виса: метроном/голос + анимированное кольцо ===== */
+
 .holdset .hold-opts{display:flex;flex-direction:column;gap:2px}
 .holdset .toggle{border-bottom:1px solid var(--line)}
 .holdset .toggle:last-child{border-bottom:none}
@@ -294,7 +293,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .seg.sm{padding:3px;gap:3px}
 .seg.sm button{padding:7px 10px;font-size:12px}
 
-/* оверлей поверх экрана тренировки */
+
 .hold-ov{position:relative;margin:14px 0;animation:rise .35s both}
 .hold-card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line2);
   border-radius:22px;padding:22px 20px;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.45)}
@@ -312,7 +311,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .hold-num small{font-size:12px;color:var(--ink-faint);margin-top:6px}
 .hold-hint{font-size:14px;color:var(--ink-soft);line-height:1.5;margin:10px 0 16px;min-height:21px}
 .hold-ctrls .btn{margin:0}
-/* ===== «Живой разбор» после тренировки ===== */
+
 .card.debrief{background:linear-gradient(135deg,#1a2230,#15202b);border-color:var(--line2);position:relative;overflow:hidden}
 .card.debrief::before{content:"";position:absolute;right:-40px;top:-40px;width:130px;height:130px;
   background:radial-gradient(circle,rgba(95,208,196,.12),transparent 70%);pointer-events:none}
@@ -323,8 +322,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .db-text{font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
 .db-text b{color:var(--ink)}
 .db-timing{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-faint)}
-/* ===== Круг виса v2: подготовка, поправка, степперы, подсказки ===== */
-/* строка-настройка со степпером */
+
+
 .hstep{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
 .hstep:last-child{border-bottom:none}
 .stepmini{display:flex;align-items:center;gap:10px;flex:none}
@@ -333,14 +332,14 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .hold-tip{margin-top:12px;font-size:12.5px;line-height:1.5;color:var(--ink-faint);
   background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
 
-/* кнопки в круге: две в ряд */
+
 .hold-ctrls.two{display:flex;gap:10px}
 .hold-ctrls.two .btn{flex:1;margin:0}
 
-/* кольцо подготовки — спокойный синий */
+
 .hold-ring .hr-fg.prep{stroke:var(--blue);transition:none}
 
-/* фаза поправки на спрыгивание */
+
 .adj-big{margin:6px 0 12px;display:flex;flex-direction:column;align-items:center}
 .adj-big span{font-family:var(--serif);font-size:54px;font-weight:600;line-height:1;color:var(--amber)}
 .adj-big small{font-size:12px;color:var(--ink-faint);margin-top:6px}
@@ -349,10 +348,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .adj-label{font-size:13.5px;color:var(--ink-soft)}
 .adj-calc{font-size:13px;color:var(--ink-faint);text-align:center;margin-bottom:14px}
 .adj-calc b{color:var(--ink)}
-/* ===== Переключатель дисциплин + экран «Свободная тренировка» ===== */
+
 :root{ --violet:#8b7cf6; --blue:#5b9bd5; }
 
-/* лента дисциплин */
+
 .dstrip{display:flex;flex-wrap:wrap;gap:8px;padding:10px 16px 4px}
 .dchip{flex:none;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;
   background:var(--card);border:1px solid var(--line);color:var(--ink-soft);font-size:13px;font-weight:600;white-space:nowrap;transition:.2s}
@@ -361,7 +360,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .dchip-ico{font-size:15px}
 .dchip-soon{font-size:10px;color:var(--ink-faint);font-weight:500;margin-left:2px}
 
-/* форма ввода параметров */
+
 .fgroup{padding:12px 0;border-bottom:1px solid var(--line)}
 .fgroup:last-child{border-bottom:none}
 .flabel{font-size:13px;color:var(--ink-faint);margin-bottom:8px;font-weight:600}
@@ -372,7 +371,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
   color:var(--ink-soft);font-size:13px;font-weight:600;transition:.15s}
 .fchip.on{background:var(--amber);border-color:var(--amber);color:#1a1207}
 
-/* карточка упражнения в плане */
+
 .fitem{padding:14px 16px}
 .fi-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .fi-name{font-weight:600;font-size:15px}
@@ -385,21 +384,21 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .fwarn.soft{color:var(--ink-soft);background:var(--bg2);border-color:var(--line)}
 .swapbtn{margin-top:10px}
 
-/* офисный режим */
+
 .orow{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
 .orow:last-child{border-bottom:none}
 .oslot{font-family:var(--serif);font-size:14px;color:var(--amber);min-width:64px}
 .oname{flex:1;font-size:14px}
 .oreps{font-size:13px;color:var(--ink-faint)}
 
-/* запись: чисто/грязно */
+
 .logrow{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:10px}
 .lglab{font-size:13.5px;color:var(--ink-soft)}
 .lgval{min-width:40px;text-align:center;font-family:var(--serif);font-size:18px;font-weight:600;color:var(--amber)}
 .stepmini{display:flex;align-items:center;gap:10px}
 .stepmini .mini{width:34px;height:34px;border-radius:10px}
 
-/* выбор упражнений вручную («Выберу сам») */
+
 .pickgroup{margin-bottom:14px}
 .pickgroup:last-child{margin-bottom:0}
 .pickrow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;
@@ -412,10 +411,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .pk-name{font-weight:600;font-size:14px;color:var(--ink)}
 .pk-mus{font-size:12px;color:var(--ink-faint)}
 .btn.disabled{opacity:.5;pointer-events:none}
-/* экспорт CSV */
+
 .card.fexport{margin-top:14px}
 .card.fexport .fchip{cursor:pointer}
-/* ===== Карта нагрузки по телу ===== */
+
 .bodywrap{margin:14px 0 10px;display:flex;justify-content:center}
 .bodysvg{width:100%;max-width:340px;height:auto}
 .bodysvg .bm-cap{fill:var(--ink-faint);font-size:10px;font-family:var(--sans)}
@@ -430,9 +429,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .bm-bars i{height:5px;border-radius:3px;display:block;min-width:2px}
 .bm-bars .bm-dyn{background:var(--amber)}
 .bm-bars .bm-stat{background:var(--blue)}
-/* ===== CSS для новых фич (дописать в конец styles.css) ===== */
 
-/* Кросс-предупреждение восстановления */
+
+
 .card.crosswarn{background:rgba(224,160,95,.08);border-color:rgba(224,160,95,.4)}
 .cw-head{font-weight:700;font-size:15px;color:#e0a05f;margin-bottom:8px}
 .cw-msg{font-size:14px;line-height:1.55;color:var(--ink-soft);margin-bottom:8px}
@@ -441,7 +440,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .cw-actions{display:flex;gap:10px}
 .cw-actions .btn{flex:1}
 
-/* GTG — Отжимания */
+
 .gtg-maxset{display:flex;align-items:center;justify-content:center;gap:18px;margin:6px 0}
 .gtg-maxval{font-family:var(--serif);font-size:46px;font-weight:600;color:var(--teal);min-width:70px;text-align:center}
 .gtg-dots{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
@@ -452,7 +451,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .gtg-proj span{display:block;font-size:11px;color:var(--ink-faint);margin-bottom:4px}
 .gtg-proj b{font-family:var(--serif);font-size:20px;color:var(--ink)}
 
-/* Гора восхождения */
+
 .mountain-wrap{margin:4px 0 10px}
 .mt-pct{font-size:12px;color:var(--ink-faint);text-align:center;margin-bottom:6px;letter-spacing:.3px}
 .mt-svg{width:100%;max-width:340px;display:block;margin:0 auto}
@@ -463,20 +462,20 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .mt-cur{fill:var(--ink);font-size:9px;font-family:var(--sans);font-weight:700}
 .mt-goal{fill:var(--amber);font-size:9px;font-family:var(--sans);font-weight:700}
 .mt-lab{fill:var(--ink-faint);font-size:9px;font-family:var(--sans)}
-/* фильтр слоёв карты тела: подчёркивание цветом слоя вместо рамки */
+
 .laychip{padding:7px 12px;background:transparent;border:none;border-bottom:2px solid transparent;
   color:var(--ink-faint);font-size:13px;font-weight:600;border-radius:0;transition:.15s}
 .laychip.on{color:var(--ink)}
 .laychip.dyn.on{border-bottom-color:var(--amber);color:var(--amber)}
 .laychip.stat.on{border-bottom-color:var(--blue);color:var(--blue)}
 .laychip.all.on{border-bottom-color:var(--ink-soft)}
-/* серии (силовой режим Кожуркина) */
+
 .series-head{font-size:12px;font-weight:700;color:var(--amber);margin:12px 0 6px;letter-spacing:.3px}
 .series-head:first-child{margin-top:0}
 .series-sub{font-weight:500;color:var(--ink-faint);font-size:11px;margin-left:4px}
 .series-gap{text-align:center;font-size:12px;color:var(--ink-faint);padding:8px;margin:6px 0;
   background:var(--bg2);border-radius:10px;border:1px dashed var(--line)}
-/* пошаговая запись подходов */
+
 .setlog{font-size:12.5px;color:var(--ink-faint);margin:8px 0 4px}
 .setlog b{color:var(--amber)}
 .setchip{display:inline-flex;align-items:center;gap:3px;background:var(--bg2);border:1px solid var(--line);
@@ -487,14 +486,14 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .commitbtn:active{background:var(--teal);color:#0d1a18}
 .fitem.done{border-color:rgba(95,208,196,.4)}
 .fitem.done .fi-name{color:var(--teal)}
-/* офисный режим — фиксация подходов */
+
 .orow{align-items:flex-start;flex-wrap:wrap}
 .orow.next{background:rgba(232,162,74,.06);border-radius:10px}
 .onow{font-size:11px;color:var(--amber);font-weight:600}
 .ocnt{font-size:12px;color:var(--ink-faint);margin-top:3px}
 .ocnt b{color:var(--amber)}
 .commitbtn.office{width:auto;flex:none;margin-top:0;margin-left:auto;padding:8px 14px;font-size:13px}
-/* офисный режим v2: карточки упражнений с фиксацией подходов */
+
 .ocard{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px}
 .ocard:last-child{margin-bottom:0}
 .ocard.next{border-color:rgba(232,162,74,.45);background:rgba(232,162,74,.06)}
@@ -505,7 +504,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .ocard .setlog{margin:4px 0 8px;min-height:20px}
 .ocard .logrow{margin-top:6px}
 .ocard .commitbtn{width:100%;margin-top:10px}
-/* объёмный цикл: карта недель */
+
 .vmap{display:flex;flex-wrap:wrap;gap:5px}
 .vcell{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;
   font-size:11px;font-weight:600;background:var(--bg2);border:1px solid var(--line);color:var(--ink-faint)}
@@ -519,7 +518,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .vlegend span{display:flex;align-items:center;gap:5px}
 .vl{width:10px;height:10px;border-radius:3px;display:inline-block;border:1px solid var(--line)}
 .vl.wk{border-color:var(--teal)} .vl.dl{border-color:var(--blue)} .vl.ts{border-color:var(--amber)}
-/* GTG: подписанные блоки выбора движения и режима + пояснение */
+
 .gsel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:14px}
 .gsel-row{margin-bottom:12px}
 .gsel-row:last-of-type{margin-bottom:10px}
@@ -529,42 +528,31 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
   background:var(--bg2);border-radius:10px;padding:10px 12px;border-left:3px solid var(--teal)}
 .gmode-info b{color:var(--teal)}
 .gmode-info span{color:var(--ink-faint)}
-/* ===================================================================
-   ФИГУРЫ УПРАЖНЕНИЙ + СЕРИИ + ТАЙМЕРЫ
-   Единый блок. Идёт последним в styles.css.
-   Классы сверены с js/ui/components/figure.js — лишних тут нет.
-   =================================================================== */
 
-/* ===== Фигура упражнения (v5, силуэт) ===== */
+
+
 .fgfig{display:block;overflow:visible}
 
-/* Тело — ЗАЛИВКА, а не обводка. stroke-width здесь не нужен вообще:
-   толщина конечности задаётся геометрией формы в figure.js. */
+
 .fgfig .s-body{fill:var(--amber);stroke:none}
 
-/* Дальняя рука/нога в виде СБОКУ — притемнённый тон, даёт глубину.
-   Во фронтальном ракурсе этот класс не применяется: там обе половины
-   тела равноправны, и притемнение читалось бы как грязь. */
+
 .fgfig .s-far{fill:#96632a;stroke:none}
 
-/* Выбивка: та же форма, залитая и обведённая цветом фона, лежит под
-   основной. Ближняя нога перестаёт сливаться с торсом.
-   Цвет обязан совпадать с фоном плитки — отсюда --fig-bg. */
+
 .fgfig .s-ko{fill:var(--fig-bg,#191f2b);stroke:var(--fig-bg,#191f2b);
   stroke-width:6;stroke-linejoin:round}
 
-/* Сцена */
+
 .fgfig .s-eq{stroke:var(--ink-soft);stroke-width:4.5;stroke-linecap:round}
 .fgfig .s-ground{stroke:var(--line2);stroke-width:4.5;stroke-linecap:round}
 
-/* Инвентарь контрастным цветом — различает упражнения с общим силуэтом */
+
 .fgfig .s-kb{fill:var(--teal)}
 .fgfig .s-band{stroke:var(--blue);stroke-width:3.6;fill:none;
   stroke-linecap:round;stroke-dasharray:5 4}
 
-/* ===== Размещение фигур в карточках =====
-   Каждая плитка объявляет --fig-bg под цвет своей заливки: иначе
-   выбивка проступит тёмным пятном поверх фигуры. */
+
 .fi-top{display:flex;gap:12px;align-items:flex-start}
 .fi-fig{--fig-bg:var(--bg2);
   flex:none;width:86px;height:86px;background:var(--bg2);border-radius:14px;
@@ -584,7 +572,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 
 @media (prefers-reduced-motion: reduce){ .fgfig animate{display:none} }
 
-/* ===== Выбор числа серий ===== */
+
 .serpick{margin:12px 0 4px;padding:12px 0 0;border-top:1px solid var(--line)}
 .serpick .sp-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .serpick .sp-label{font-size:14px;font-weight:600}
@@ -595,14 +583,14 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .serpick .sp-note.low{color:var(--ink-soft);background:rgba(91,141,239,.08)}
 .serpick .sp-note.high{color:var(--amber);background:rgba(232,162,74,.09)}
 
-/* ===== Два таймера отдыха ===== */
+
 .rest-two{display:flex;flex-direction:column;gap:8px}
 .rest-line{display:flex;align-items:center;gap:10px}
 .rest-line .rl-label{flex:1;font-size:13px;color:var(--ink-soft)}
 .rest-line .stepmini span{min-width:56px}
 .ser-note{font-size:12.5px;line-height:1.5;color:var(--ink-faint);margin-top:10px}
 
-/* Заголовок серии и кнопка перерыва между сериями */
+
 .series-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
   font-size:13px;font-weight:700;color:var(--ink-soft);margin:14px 2px 6px}
 .series-head .series-sub{font-size:11.5px;font-weight:400;color:var(--ink-faint)}
@@ -610,71 +598,51 @@ button.series-gap{display:block;width:100%;text-align:center;font-size:12px;colo
   padding:10px;margin:8px 0;background:var(--bg2);border:1px dashed var(--line2);border-radius:12px;cursor:pointer}
 button.series-gap:active{background:var(--card2)}
 
-/* ===== Предупреждение о прерывании серии ===== */
+
 .card.breakwarn{border-color:rgba(224,122,111,.45);background:rgba(224,122,111,.06);margin:8px 0}
 .breakwarn .bw-head{font-size:14px;font-weight:700;color:#e07a6f;margin-bottom:8px}
 .breakwarn .bw-msg{font-size:13.5px;line-height:1.55;color:var(--ink-soft);margin-bottom:8px}
 .breakwarn .bw-sci{font-size:12.5px;line-height:1.5;color:var(--ink-faint);margin-bottom:12px}
 
 
-/* ===================================================================
-   ФИГУРЫ УПРАЖНЕНИЙ — v7, человек из палок
-   Дописано в конец, как требует регламент проекта.
-   Правила ниже перекрывают одноимённые выше по каскаду: селекторы с
-   тегом `line` специфичнее, чем прежние `.fgfig .s-body`.
-   =================================================================== */
 
-/* Тело — ОБВОДКА, а не заливка. Заливок в v7 нет вообще: у палок
-   рука физически не может утонуть в корпусе, потому что корпус сам
-   линия. Толщина задаётся здесь, а не в геометрии. */
+
+
 .fgfig .s-body line{stroke:var(--amber);stroke-width:5.4;stroke-linecap:round;fill:none}
 .fgfig .s-body .s-j,
 .fgfig .s-body .s-hd{fill:var(--amber);stroke:none}
 
-/* Дальняя рука и нога — приглушённый тон, даёт глубину и не даёт
-   принять две ноги за одну. */
+
 .fgfig .s-far line{stroke:#8c5c28;stroke-width:5;stroke-linecap:round;fill:none}
 .fgfig .s-far .s-j,
 .fgfig .s-far .s-hd{fill:#8c5c28;stroke:none}
 
-/* Подложка под ближними конечностями цветом фона плитки: линия руки
-   не сливается с линией корпуса, когда проходит поверх него.
-   Цвет обязан совпадать с фоном плитки — отсюда --fig-bg. */
+
 .fgfig .s-halo line{stroke:var(--fig-bg,#191f2b);stroke-width:10;stroke-linecap:round;fill:none}
 .fgfig .s-halo .s-j,
 .fgfig .s-halo .s-hd{fill:var(--fig-bg,#191f2b);stroke:none}
 
-/* Стартовая поза тонким контуром: приседание видно как приседание
-   даже на статичном кадре. */
+
 .fgfig .s-ghost{fill:none;stroke:var(--amber);stroke-width:2;opacity:.30;stroke-linecap:round}
 
-/* Стрелка направления — по точке, прошедшей наибольший путь. */
+
 .fgfig .s-arrow{fill:none;stroke:var(--teal);stroke-width:2.4;stroke-linecap:round}
 .fgfig .s-arrowhead{fill:var(--teal)}
 
-/* Сцена */
+
 .fgfig .s-eq{stroke:var(--ink-soft);stroke-width:4;stroke-linecap:round;fill:none}
 .fgfig .s-ground{stroke:var(--line2);stroke-width:4;stroke-linecap:round;fill:none}
 
-/* v5 анимировал тег <animate>, v7 — <animateTransform>. Правило обязано
-   гасить оба, иначе reduced-motion молча перестаёт работать. */
+
 @media (prefers-reduced-motion: reduce){
   .fgfig animate,
   .fgfig animateTransform{display:none}
 }
 
 
-/* ===================================================================
-   PWA: ШРИФТЫ ЛОКАЛЬНО, БЕЗОПАСНЫЕ ЗОНЫ, БЛОК «ДАННЫЕ И УСТАНОВКА»
-   Дописано в конец, как требует регламент проекта.
-   =================================================================== */
 
-/* Шрифты лежат в папке fonts/ и попадают в офлайн-кеш. Раньше они
-   грузились с Google Fonts: без сети приложение показывало системный
-   шрифт, а при недоступном Google запуск ждал таймаута.
-   Путь ../fonts/ — относительно css/; сборка правит его на fonts/.
-   Fraunces содержит только латиницу и цифры (кириллицы в нём нет и не
-   было): русские заголовки, как и раньше, рисуются запасным Georgia/serif. */
+
+
 @font-face{font-family:'Manrope';font-style:normal;font-weight:200 800;font-display:swap;
   src:url(fonts/manrope-cyrillic-wght-normal.woff2) format('woff2');
   unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
@@ -685,15 +653,14 @@ button.series-gap:active{background:var(--card2)}
   src:url(fonts/fraunces-latin-wght-normal.woff2) format('woff2');
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
-/* Установленное приложение на iPhone рисуется под строкой состояния и
-   «чёлкой» — отодвигаем содержимое. В браузере и Telegram отступ равен 0. */
+
 #app{padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
 
-/* Блок «Данные и установка» в профиле */
+
 .datacard{padding:6px 18px}
 .dc-row{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
 .dc-row:last-of-type{border-bottom:none}
-/* кнопки и форма переноса — во всю ширину карточки, а не в узкой правой колонке */
+
 .dc-wide{padding:14px 0 14px}
 .dc-btns{display:flex;gap:8px}
 .dc-btns .fchip{flex:1;text-align:center;padding:10px 8px}
@@ -725,9 +692,7 @@ button.series-gap:active{background:var(--card2)}
 .bk-text{overflow-y:auto}
 
 
-/* ===================================================================
-   ПЛАТНЫЙ ДОСТУП: вход по ключу, замок режима, цены, перенос по коду
-   =================================================================== */
+
 .gate{padding:44px 26px 40px;max-width:460px;margin:0 auto}
 .gate-h{font-family:var(--serif);font-size:34px;font-weight:600;line-height:1.1;margin:10px 0 14px}
 .gate-p{font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
@@ -771,7 +736,7 @@ button.series-gap:active{background:var(--card2)}
 #gerr .fwarn{margin:0 0 12px}
 
 
-/* ===== Общий учёт мышц: предупреждение перед тренировкой, подпись карты тела ===== */
+
 .card.crosswarn .cw-msg{color:var(--ink);font-size:14.5px;margin-bottom:10px}
 .cw-why{margin:0 0 12px}
 .cw-why summary{font-size:12.5px;color:var(--ink-faint);cursor:pointer;list-style:none;text-decoration:underline;display:inline-block}
@@ -788,7 +753,7 @@ button.series-gap:active{background:var(--card2)}
 .bm-src{color:var(--ink-soft)}
 
 
-/* ---------- Совместный план: предупреждение перед тяжёлой тренировкой ---------- */
+
 .guard-ov{position:fixed;inset:0;z-index:1000;background:rgba(8,10,14,.78);display:flex;align-items:flex-end;justify-content:center;padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom))}
 .guard-box{width:100%;max-width:440px;background:var(--card);border:1px solid rgba(224,160,95,.45);border-radius:20px;padding:22px 18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .guard-ico{width:38px;height:38px;border-radius:50%;background:rgba(224,160,95,.16);color:var(--amber);font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
@@ -798,7 +763,7 @@ button.series-gap:active{background:var(--card2)}
 .guard-box .btn.guard-risk{color:var(--red);border-color:rgba(224,122,111,.45)}
 .card.crosswarn.planline{background:rgba(91,155,213,.08);border-color:rgba(91,155,213,.4)}
 
-/* ---------- Общая карточка «План на сегодня» ---------- */
+
 .card.dayplan{padding:16px 16px 14px}
 .dp-head{font-family:var(--serif,inherit);font-weight:700;font-size:17px;color:var(--ink);margin-bottom:10px}
 .dp-row{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:11px 12px;margin-bottom:8px;color:var(--ink);font:inherit;cursor:pointer}
@@ -842,7 +807,7 @@ details.weekplan summary::after{content:'показать ▾';letter-spacing:0;
 details.weekplan[open] summary::after{content:'скрыть ▴'}
 details.weekplan[open] summary{margin-bottom:8px}
 
-/* ---------- Фигурки v8: инвентарь ---------- */
+
 .fgfig .s-body .s-kb{fill:var(--teal);stroke:none}
 .fgfig .s-far .s-kb{fill:#3a8f88;stroke:none}
 .fgfig .s-halo .s-kb{fill:var(--fig-bg,#191f2b);stroke:var(--fig-bg,#191f2b);stroke-width:3}
@@ -853,3 +818,13 @@ details.weekplan[open] summary{margin-bottom:8px}
 .dp-t{display:block;font-size:14.5px;line-height:1.3;color:var(--ink-soft)}
 .dp-t b{color:var(--ink);font-size:14.5px}
 .dp-out{margin-top:12px}
+
+
+details.stopsigns{padding:12px 16px}
+details.stopsigns summary{cursor:pointer;color:var(--amber);font-weight:700;font-size:14px;list-style:none}
+details.stopsigns summary::-webkit-details-marker{display:none}
+details.stopsigns summary::after{content:' ▾'}
+details.stopsigns[open] summary::after{content:' ▴'}
+details.stopsigns ul{margin:10px 0 6px;padding-left:18px;color:var(--ink-soft);font-size:14px;line-height:1.45}
+.dp-chips .fchip{flex:1;min-width:0;padding-left:6px;padding-right:6px;text-align:center}
+.dp-chips{flex-wrap:nowrap}

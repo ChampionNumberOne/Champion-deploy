@@ -11,7 +11,7 @@
        подменяет старую: либо всё новое, либо всё старое, без смеси;
      • чужие адреса (Telegram, сервер ключей) не трогает вообще.
    ============================================================ */
-const VERSION = "81556c7c6a";
+const VERSION = "202dd470ea";
 const FILES = ["./","index.html","app.min.js","styles.css","manifest.json","icons/apple-touch-icon.png","icons/favicon-32.png","icons/icon-192.png","icons/icon-512.png","icons/icon-maskable-512.png","fonts/fraunces-latin-wght-normal.woff2","fonts/manrope-cyrillic-wght-normal.woff2","fonts/manrope-latin-wght-normal.woff2"];
 const PREFIX = 'turnik-';
 const CACHE = PREFIX + VERSION;
